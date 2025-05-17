@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -107,8 +108,8 @@ const RoomCarousel: React.FC = () => {
   };
 
   const openChatWithRoomQuery = () => {
-    // Open doptos-chat instead of webchat-button
-    const chatButton = document.getElementById('doptos-chat');
+    // First open webchat
+    const chatButton = document.getElementById('webchat-button');
     if (chatButton) {
       chatButton.click();
     }
@@ -120,8 +121,8 @@ const RoomCarousel: React.FC = () => {
   return (
     <section id="rooms" className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-playfair font-bold text-center mb-12">
-          Quartos <span className="text-doptos-cyan">&</span> Tarifas
+        <h2 className="text-4xl font-['Playfair_Display'] font-bold text-center mb-12">
+          Quartos <span className="text-hotel-gold">&</span> Tarifas
         </h2>
         
         <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -140,7 +141,7 @@ const RoomCarousel: React.FC = () => {
                   {currentRoom.images.map((_, idx) => (
                     <button
                       key={idx}
-                      className={`w-3 h-3 rounded-full ${idx === currentImageIndex[currentRoom.id] ? 'bg-doptos-blue' : 'bg-white/60'}`}
+                      className={`w-3 h-3 rounded-full ${idx === currentImageIndex[currentRoom.id] ? 'bg-hotel-gold' : 'bg-white/60'}`}
                       onClick={() => setCurrentImageIndex(prev => ({...prev, [currentRoom.id]: idx}))}
                     />
                   ))}
@@ -168,10 +169,10 @@ const RoomCarousel: React.FC = () => {
           </div>
           
           {/* Room Details */}
-          <div className="bg-doptos-bg p-6 rounded-lg">
+          <div className="bg-hotel-light-gray p-6 rounded-lg">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-2xl font-playfair font-bold">{currentRoom.name}</h3>
-              <div className="text-doptos-blue font-bold text-2xl">
+              <h3 className="text-2xl font-['Playfair_Display'] font-bold">{currentRoom.name}</h3>
+              <div className="text-hotel-gold font-bold text-2xl">
                 R$ {currentRoom.price}
                 <span className="text-sm text-gray-600">/noite</span>
               </div>
@@ -184,7 +185,7 @@ const RoomCarousel: React.FC = () => {
               <ul className="grid grid-cols-2 gap-2">
                 {currentRoom.amenities.map((amenity, index) => (
                   <li key={index} className="flex items-center">
-                    <span className="mr-2 text-doptos-cyan">•</span>
+                    <span className="mr-2 text-hotel-gold">•</span>
                     {amenity}
                   </li>
                 ))}
@@ -209,7 +210,7 @@ const RoomCarousel: React.FC = () => {
               
               <Button
                 onClick={openChatWithRoomQuery}
-                className="bg-doptos-blue hover:bg-doptos-blue/90 text-white"
+                className="bg-hotel-wine hover:bg-hotel-wine/90 text-white"
               >
                 Consultar disponibilidade
               </Button>

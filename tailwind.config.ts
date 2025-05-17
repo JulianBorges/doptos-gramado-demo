@@ -63,10 +63,12 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				doptos: {
-					'blue': '#1D4ED8',
-					'cyan': '#06B6D4',
-					'bg': '#FAFAFA',
+				hotel: {
+					'gold': '#D4AF37',
+					'wine': '#722F37',
+					'neutral': '#8E9196',
+					'light-gray': '#F1F0FB',
+					'bg-cream': '#FFFAF0'
 				}
 			},
 			borderRadius: {
@@ -106,10 +108,6 @@ export default {
 				'fade-in': 'fade-in 0.5s ease-out',
 				'fade-out': 'fade-out 0.5s ease-out'
 			},
-			fontFamily: {
-				'playfair': ['"Playfair Display"', 'serif'],
-				'inter': ['Inter', 'sans-serif']
-			}
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

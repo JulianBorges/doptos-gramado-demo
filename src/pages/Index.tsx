@@ -6,10 +6,11 @@ import ServicesSection from "../components/ServicesSection";
 import AIExperienceSection from "../components/AIExperienceSection";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
+import FloatingChat from "../components/FloatingChat";
 
 const Index = () => {
   return (
-    <div className="font-inter">
+    <div className="font-['Poppins']">
       <Navigation />
       <HeroSection />
       <RoomCarousel />
@@ -17,6 +18,7 @@ const Index = () => {
       <AIExperienceSection />
       <ContactSection />
       <Footer />
+      <FloatingChat />
     </div>
   );
 };
