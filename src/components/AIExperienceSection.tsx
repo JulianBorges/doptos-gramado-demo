@@ -4,30 +4,30 @@ import { MessageSquare, Clock, CheckCircle, TrendingUp } from "lucide-react";
 
 const features = [
   {
-    icon: <MessageSquare className="h-10 w-10 text-hotel-gold" />,
-    title: "Respostas instantâneas para todas as dúvidas",
+    icon: <MessageSquare className="h-10 w-10 text-doptos-cyan" />,
+    title: "Respostas instantâneas em 8 segundos",
     description: "Nosso agente de IA responde perguntas sobre acomodações, serviços, horários e políticas do hotel em segundos."
   },
   {
-    icon: <Clock className="h-10 w-10 text-hotel-gold" />,
+    icon: <Clock className="h-10 w-10 text-doptos-cyan" />,
     title: "Check-in e check-out simplificados",
     description: "Faça seu pré check-in e agilize sua saída através de conversas naturais com nosso assistente virtual."
   },
   {
-    icon: <CheckCircle className="h-10 w-10 text-hotel-gold" />,
+    icon: <CheckCircle className="h-10 w-10 text-doptos-cyan" />,
     title: "Atendimento personalizado 24/7",
     description: "Assistência e recomendações adaptadas ao seu perfil, disponíveis a qualquer hora, sem espera."
   },
   {
-    icon: <TrendingUp className="h-10 w-10 text-hotel-gold" />,
-    title: "Sugestões e upgrades",
-    description: "Receba opções de melhorias para sua estadia, pacotes especiais e experiências exclusivas baseadas em suas preferências."
+    icon: <TrendingUp className="h-10 w-10 text-doptos-cyan" />,
+    title: "+22% de reservas diretas",
+    description: "Aumente suas conversões com sugestões inteligentes de upgrades, pacotes especiais e experiências exclusivas."
   }
 ];
 
 const AIExperienceSection = () => {
   const openWebchat = () => {
-    const chatButton = document.getElementById('webchat-button');
+    const chatButton = document.getElementById('doptos-chat');
     if (chatButton) {
       chatButton.click();
     }
@@ -37,8 +37,8 @@ const AIExperienceSection = () => {
     <section id="ai-experience" className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-4xl font-['Playfair_Display'] font-bold mb-4">
-            Experiência com IA
+          <h2 className="text-4xl font-playfair font-bold mb-4">
+            Experiência Doptos IA
           </h2>
           <p className="text-gray-600">
             Nosso agente de inteligência artificial transforma a experiência dos hóspedes com atendimento
@@ -48,7 +48,7 @@ const AIExperienceSection = () => {
         
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           {features.map((feature, index) => (
-            <div key={index} className="flex gap-4 p-6 rounded-lg hover:bg-hotel-light-gray transition-colors">
+            <div key={index} className="flex gap-4 p-6 rounded-lg hover:bg-doptos-bg transition-colors">
               <div className="flex-shrink-0">
                 {feature.icon}
               </div>
@@ -60,14 +60,14 @@ const AIExperienceSection = () => {
           ))}
         </div>
         
-        <div className="bg-gradient-to-r from-hotel-wine to-hotel-gold p-8 rounded-xl text-white text-center">
+        <div className="bg-gradient-to-r from-doptos-blue to-doptos-cyan p-8 rounded-xl text-white text-center">
           <h3 className="text-2xl font-bold mb-4">Experimente agora mesmo!</h3>
           <p className="mb-6">
             Converse com nosso assistente virtual e veja como podemos transformar sua experiência em nosso hotel
           </p>
           <Button 
             onClick={openWebchat}
-            className="bg-white text-hotel-wine hover:bg-gray-100 font-semibold px-8 py-6"
+            className="bg-white text-doptos-blue hover:bg-gray-100 font-semibold px-8 py-6"
           >
             Testar o agente de IA
           </Button>

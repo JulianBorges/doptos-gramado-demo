@@ -28,8 +28,18 @@ const ContactSection = () => {
     setIsSubmitting(true);
     
     try {
-      // Simulando envio para endpoint fictício
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Enviando para o novo endpoint
+      const response = await fetch('https://adf9f695-1e91-41c8-887a-65d4c9a4e1f1', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      if (!response.ok) {
+        throw new Error('Erro na requisição');
+      }
       
       console.log("Form submitted with data:", formData);
       
@@ -62,9 +72,9 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-16 bg-hotel-light-gray">
+    <section id="contact" className="py-16 bg-doptos-bg">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-['Playfair_Display'] font-bold text-center mb-4">
+        <h2 className="text-4xl font-playfair font-bold text-center mb-4">
           Faça sua Pré-reserva
         </h2>
         <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
@@ -110,6 +120,7 @@ const ContactSection = () => {
                   onChange={handleChange}
                   className="elegant-input w-full"
                   placeholder="(XX) XXXXX-XXXX"
+                  pattern="^\(\d{2}\) \d{5}-\d{4}$"
                 />
               </div>
               
@@ -184,7 +195,7 @@ const ContactSection = () => {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-hotel-gold hover:bg-hotel-gold/90 text-black font-medium text-lg px-8 py-6 w-full md:w-auto"
+                className="bg-doptos-blue hover:bg-doptos-blue/90 text-white font-medium text-lg px-8 py-6 w-full md:w-auto"
               >
                 {isSubmitting ? (
                   <>

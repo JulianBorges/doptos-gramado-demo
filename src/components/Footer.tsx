@@ -9,24 +9,24 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-['Playfair_Display'] font-bold mb-4">
-              <span className="text-hotel-gold">Doptos</span> Hotel
+            <h3 className="text-2xl font-playfair font-bold mb-4">
+              <span className="text-doptos-cyan">Doptos</span> Hotel
             </h3>
             <p className="text-gray-300 mb-4 max-w-md">
               Localizado no coração de Gramado, oferecemos uma experiência única 
               na Serra Gaúcha com o melhor da hospitalidade e tecnologia.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-hotel-gold">
+              <a href="#" className="text-gray-300 hover:text-doptos-cyan">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="text-gray-300 hover:text-hotel-gold">
+              <a href="#" className="text-gray-300 hover:text-doptos-cyan">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="text-gray-300 hover:text-hotel-gold">
+              <a href="#" className="text-gray-300 hover:text-doptos-cyan">
                 <Twitter size={20} />
               </a>
-              <a href="#" className="text-gray-300 hover:text-hotel-gold">
+              <a href="#" className="text-gray-300 hover:text-doptos-cyan">
                 <Linkedin size={20} />
               </a>
             </div>
@@ -36,19 +36,19 @@ const Footer = () => {
             <h4 className="text-lg font-bold mb-4">Links Rápidos</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#home" className="text-gray-300 hover:text-hotel-gold">Home</a>
+                <a href="#home" className="text-gray-300 hover:text-doptos-cyan">Home</a>
               </li>
               <li>
-                <a href="#rooms" className="text-gray-300 hover:text-hotel-gold">Quartos & Tarifas</a>
+                <a href="#rooms" className="text-gray-300 hover:text-doptos-cyan">Quartos & Tarifas</a>
               </li>
               <li>
-                <a href="#services" className="text-gray-300 hover:text-hotel-gold">Serviços</a>
+                <a href="#services" className="text-gray-300 hover:text-doptos-cyan">Serviços</a>
               </li>
               <li>
-                <a href="#ai-experience" className="text-gray-300 hover:text-hotel-gold">Experiência de IA</a>
+                <a href="#ai-experience" className="text-gray-300 hover:text-doptos-cyan">Experiência Doptos IA</a>
               </li>
               <li>
-                <a href="#contact" className="text-gray-300 hover:text-hotel-gold">Contato</a>
+                <a href="#contact" className="text-gray-300 hover:text-doptos-cyan">Contato</a>
               </li>
             </ul>
           </div>
@@ -78,7 +78,7 @@ const Footer = () => {
           </p>
           <div className="flex items-center">
             <span className="text-gray-400 text-sm mr-2">Powered by</span>
-            <span className="text-hotel-gold font-bold">DoptosAI</span>
+            <span className="text-doptos-cyan font-bold">Doptos AI</span>
           </div>
         </div>
       </div>

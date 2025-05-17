@@ -17,7 +17,7 @@
     <meta name="twitter:site" content="@doptos" />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
     
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap">
   </head>
 
   <body>
@@ -25,5 +25,20 @@
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Doptos Chat -->
+    <button id="doptos-chat"
+            class="fixed bottom-6 right-6 bg-[#1D4ED8] p-4 rounded-full text-white shadow-lg z-50">
+      💬
+    </button>
+    <iframe id="chat-frame"
+            src="https://bot.doptos.ai/chat/"
+            class="fixed bottom-24 right-6 w-80 h-96 border-none rounded-xl shadow-lg hidden z-50 md:w-80 md:h-96 sm:w-11/12 sm:h-5/6 sm:right-1/2 sm:translate-x-1/2"></iframe>
+    <script>
+      document.getElementById('doptos-chat').onclick = () => {
+        document.getElementById('chat-frame').classList.toggle('hidden');
+      };
+    </script>
+    <!-- /Doptos Chat -->
   </body>
 </html>

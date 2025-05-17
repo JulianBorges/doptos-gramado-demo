@@ -97,32 +97,32 @@
   }
 
   body {
-    @apply bg-hotel-bg-cream text-foreground;
+    @apply bg-doptos-bg text-foreground font-inter;
     scroll-behavior: smooth;
   }
   
   html {
     scroll-behavior: smooth;
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair font-semibold;
+  }
 }
 
 .room-carousel .swiper-pagination-bullet-active {
-  background-color: #D4AF37;
+  background-color: #1D4ED8;
 }
 
 .room-carousel .swiper-button-next,
 .room-carousel .swiper-button-prev {
-  color: #D4AF37;
+  color: #1D4ED8;
 }
 
 .elegant-input {
-  @apply py-2 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-hotel-gold focus:border-hotel-gold;
+  @apply py-2 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-doptos-blue focus:border-doptos-blue;
 }
 
-.gold-gradient {
-  background: linear-gradient(135deg, #D4AF37 0%, #FFDF6F 100%);
-}
-
-.wine-gradient {
-  background: linear-gradient(135deg, #722F37 0%, #9E3A43 100%);
+.blue-gradient {
+  background: linear-gradient(135deg, rgba(29, 78, 216, 0.8) 0%, rgba(6, 182, 212, 0.5) 100%);
 }

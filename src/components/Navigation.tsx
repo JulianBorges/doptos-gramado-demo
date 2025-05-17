@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { Home, Bed, Info, Phone, Menu } from "lucide-react";
+import { Home, Bed, Info, Phone, MessageSquare, Menu } from "lucide-react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,7 +29,7 @@ const Navigation = () => {
     { id: "home", icon: <Home size={20} />, label: "Home" },
     { id: "rooms", icon: <Bed size={20} />, label: "Quartos & Tarifas" },
     { id: "services", icon: <Info size={20} />, label: "Serviços" },
-    { id: "ai-experience", icon: <Info size={20} />, label: "Experiência de IA" },
+    { id: "ai-experience", icon: <MessageSquare size={20} />, label: "Experiência Doptos IA" },
     { id: "contact", icon: <Phone size={20} />, label: "Contato" },
   ];
 
@@ -44,8 +44,8 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
-          <h1 className="text-2xl font-bold font-['Playfair_Display'] text-hotel-wine">
-            <span className="text-hotel-gold">Doptos</span> Hotel
+          <h1 className="text-2xl font-bold font-playfair text-doptos-blue">
+            <span className="text-doptos-cyan">Doptos</span> Hotel
           </h1>
         </div>
         
@@ -55,9 +55,9 @@ const Navigation = () => {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className="flex items-center space-x-1 text-gray-700 hover:text-hotel-gold transition-colors"
+              className="flex items-center space-x-1 text-gray-700 hover:text-doptos-cyan transition-colors"
             >
-              <span className="text-hotel-gold">{item.icon}</span>
+              <span className="text-doptos-blue">{item.icon}</span>
               <span>{item.label}</span>
             </button>
           ))}
@@ -82,7 +82,7 @@ const Navigation = () => {
                 onClick={() => scrollToSection(item.id)}
                 className="flex items-center space-x-2 w-full py-3 border-b text-gray-700"
               >
-                <span className="text-hotel-gold">{item.icon}</span>
+                <span className="text-doptos-blue">{item.icon}</span>
                 <span>{item.label}</span>
               </button>
             ))}
