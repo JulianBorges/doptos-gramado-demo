@@ -25,5 +25,62 @@
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!--  Doptos – Integração ChatWeb x n8n -->
+    <script>
+    const WH_URL   = 'http://localhost:5678/webhook/adf9f695-1e91-41c8-887a-65d4c9a4e1f1';
+    const POLL_URL = 'http://localhost:5678/webchat-reply';   // crie este endpoint GET no n8n
+
+    if (!localStorage.sessionId) localStorage.sessionId = crypto.randomUUID();
+
+    /* Modal para capturar WhatsApp */
+    function ensurePhone (){
+      if (localStorage.phone) return Promise.resolve(localStorage.phone);
+      return new Promise((res)=>{
+        const m=document.createElement('div');
+        m.className='fixed inset-0 flex items-center justify-center bg-black/50 z-50';
+        m.innerHTML=`
+          <div class="bg-white rounded-xl p-6 w-80 shadow-2xl text-center">
+            <h2 class="font-semibold text-lg mb-4">Digite seu WhatsApp</h2>
+            <input id="phoneInput" class="w-full border rounded p-2 mb-3 text-center" placeholder="551199999999">
+            <p id="err" class="text-red-600 text-sm mb-3 hidden">Formato inválido. Use 55DDDNNNNNNN.</p>
+            <button id="okPhone" class="bg-indigo-600 text-white w-full py-2 rounded">Confirmar</button>
+          </div>`;
+        document.body.appendChild(m);
+        document.getElementById('okPhone').onclick=()=>{
+          const v=document.getElementById('phoneInput').value.trim();
+          if(!/^55\d{10,11}$/.test(v)){document.getElementById('err').classList.remove('hidden');return;}
+          localStorage.phone=v; m.remove(); res(v);
+        };
+      });
+    }
+
+    /* Envia mensagem ao n8n */
+    async function sendToBot(text){
+      const phone = await ensurePhone();
+      const payload = { session:localStorage.sessionId, phone, id:crypto.randomUUID(), text };
+      await fetch(WH_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    }
+
+    /* Recebe respostas (polling) */
+    async function pollBot(){
+      try{
+        const r=await fetch(`${POLL_URL}?session=${localStorage.sessionId}`);
+        if(!r.ok) return;
+        (await r.json()).forEach(m=>addBotMessage(m.text));   // usa função do iframe
+      }catch{}
+    }
+    setInterval(pollBot,2500);
+
+    /* Captura envio do usuário */
+    function handleUserSubmit(text){
+      addUserMessage(text);      // bolha do usuário (já existe no iframe)
+      sendToBot(text);
+    }
+    document.querySelector('#chatInput')?.addEventListener('keydown',e=>{
+      if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();const t=e.target.value.trim();if(t)handleUserSubmit(t);e.target.value='';}
+    });
+    </script>
+    <!-- /Doptos -->
   </body>
 </html>
