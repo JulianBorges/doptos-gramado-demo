@@ -64,8 +64,8 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				hotel: {
-					'gold': '#D4AF37',
-					'wine': '#722F37',
+					'gold': '#FFB700',  // More vivid gold tone
+					'teal': '#00897B', // Replaced wine with teal that complements the palette
 					'neutral': '#8E9196',
 					'light-gray': '#F1F0FB',
 					'bg-cream': '#FFFAF0'

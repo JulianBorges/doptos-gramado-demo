@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { MessageSquare, X } from "lucide-react";
+import { MessageSquare, X, Send } from "lucide-react";
 
 const FloatingChat = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,6 +46,32 @@ const FloatingChat = () => {
         chatContainer.scrollTop = chatContainer.scrollHeight;
       }
     };
+
+    // Set up message sending functionality
+    const handleSendMessage = () => {
+      const chatInput = document.getElementById('chatInput') as HTMLTextAreaElement;
+      if (chatInput && chatInput.value.trim()) {
+        const text = chatInput.value.trim();
+        // This will trigger the event listener added in the n8n integration script
+        const event = new KeyboardEvent('keydown', { key: 'Enter' });
+        chatInput.dispatchEvent(event);
+      }
+    };
+
+    // Attach send button handler after a short delay to ensure DOM is ready
+    setTimeout(() => {
+      const sendButton = document.getElementById('chat-send-button');
+      if (sendButton) {
+        sendButton.addEventListener('click', handleSendMessage);
+      }
+    }, 100);
+
+    return () => {
+      const sendButton = document.getElementById('chat-send-button');
+      if (sendButton) {
+        sendButton.removeEventListener('click', handleSendMessage);
+      }
+    };
   }, []);
   
   return (
@@ -65,21 +91,33 @@ const FloatingChat = () => {
             {/* Chat messages will be inserted here */}
           </div>
           <div className="border-t p-4">
-            <textarea 
-              id="chatInput"
-              className="w-full border rounded-lg p-2 resize-none focus:outline-none focus:ring-1 focus:ring-hotel-gold"
-              placeholder="Digite sua mensagem..."
-              rows={2}
-            ></textarea>
+            <div className="flex items-center gap-2">
+              <textarea 
+                id="chatInput"
+                className="w-full border rounded-lg p-2 resize-none focus:outline-none focus:ring-1 focus:ring-hotel-gold"
+                placeholder="Digite sua mensagem..."
+                rows={2}
+              ></textarea>
+              <button
+                id="chat-send-button"
+                className="bg-hotel-gold hover:bg-hotel-gold/80 text-black p-2 rounded-lg"
+              >
+                <Send size={20} />
+              </button>
+            </div>
           </div>
         </div>
       ) : (
         <button
           id="webchat-button"
           onClick={toggleChat}
-          className="bg-[#FFA500] hover:bg-[#FFA500]/90 text-white rounded-full p-4 shadow-lg flex items-center justify-center"
+          className="bg-[#FFA500] hover:bg-[#FFA500]/90 text-white rounded-full p-3 shadow-lg flex items-center justify-center"
         >
-          <MessageSquare size={24} />
+          <img 
+            src="/lovable-uploads/9bcc519a-2c1f-4390-9ee3-6b52f05eb39f.png" 
+            alt="Doptos" 
+            className="w-6 h-6"
+          />
         </button>
       )}
     </div>

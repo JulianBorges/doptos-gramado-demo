@@ -44,7 +44,10 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
-          <h1 className="text-2xl font-bold font-['Playfair_Display'] text-hotel-wine">
+          <h1 className={cn(
+            "text-2xl font-bold font-['Playfair_Display']",
+            isScrolled ? "text-hotel-teal" : "text-white"
+          )}>
             <span className="text-hotel-gold">Doptos</span> Hotel
           </h1>
         </div>
@@ -55,7 +58,12 @@ const Navigation = () => {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className="flex items-center space-x-1 text-gray-700 hover:text-hotel-gold transition-colors"
+              className={cn(
+                "flex items-center space-x-1 transition-colors",
+                isScrolled 
+                  ? "text-gray-700 hover:text-hotel-gold" 
+                  : "text-white hover:text-hotel-gold"
+              )}
             >
               <span className="text-hotel-gold">{item.icon}</span>
               <span>{item.label}</span>
@@ -65,7 +73,10 @@ const Navigation = () => {
         
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-gray-800"
+          className={cn(
+            "md:hidden",
+            isScrolled ? "text-gray-800" : "text-white"
+          )}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <Menu size={24} />
