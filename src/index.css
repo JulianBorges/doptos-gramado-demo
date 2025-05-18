@@ -120,9 +120,9 @@
 }
 
 .gold-gradient {
-  background: linear-gradient(135deg, #D4AF37 0%, #FFDF6F 100%);
+  background: linear-gradient(135deg, #D4AF37 0%, #F5DD82 100%);
 }
 
 .wine-gradient {
-  background: linear-gradient(135deg, #722F37 0%, #9E3A43 100%);
+  background: linear-gradient(135deg, #111827 0%, #1E293B 100%);
 }

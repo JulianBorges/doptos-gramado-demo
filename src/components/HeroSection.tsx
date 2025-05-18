@@ -7,7 +7,7 @@ const HeroSection = () => {
       id="home" 
       className="relative h-screen flex items-center justify-center bg-cover bg-center"
       style={{ 
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`
       }}
     >
       <div className="container mx-auto px-4 text-center text-white">
@@ -26,7 +26,7 @@ const HeroSection = () => {
                 chatButton.click();
               }
             }}
-            className="bg-hotel-gold hover:bg-hotel-gold/90 text-black px-8 py-6 text-lg rounded-md"
+            className="bg-hotel-gold hover:bg-hotel-gold/90 text-white px-8 py-6 text-lg rounded-md"
           >
             Fale com o agente agora
           </Button>

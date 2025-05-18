@@ -46,7 +46,7 @@ const Navigation = () => {
         <div className="flex items-center">
           <h1 className={cn(
             "text-2xl font-bold font-['Playfair_Display']",
-            isScrolled ? "text-hotel-teal" : "text-white"
+            isScrolled ? "text-[#111827]" : "text-white"
           )}>
             <span className="text-hotel-gold">Doptos</span> Hotel
           </h1>
